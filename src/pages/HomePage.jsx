@@ -10,13 +10,13 @@ export const HomePage = () => {
         <>
             <div className="flex flex-col h-screen">
                 <div className="bg-white p-4 flex flex-row-reverse">
-                    <div className="mx-10"
+                    <div className="mr-2 md:mx-10"
                         data-tooltip-id="my-tooltip"
                         data-tooltip-content="LinkedIn"
                         data-tooltip-place="top">
                         <SocialIcon url="https://www.linkedin.com/in/dorje-lama-0004ab10b/" style={{ height: 30, width: 30 }} />
                     </div>
-                    <div
+                    <div className='mr-4'
                         data-tooltip-id="my-tooltip"
                         data-tooltip-content="GitHub"
                         data-tooltip-place="left">
@@ -24,12 +24,13 @@ export const HomePage = () => {
                     </div>
                 </div>
 
+                {/* Content */}
                 <div className="flex flex-col items-center justify-center md:flex-row-reverse md:items-center flex-grow">
-                    {/* Image and Text */}
-                    <div className="mb-4 md:mr-4 border-2 border-gray-500 rounded-full overflow-hidden md:order-2">
-                        <img src={clearPic} alt="Profile" className="h-32 w-32 transform scale-110 md:scale-100 md:h-32 md:w-32" />
+                    {/* Image and Text (Reversed order for smaller screens) */}
+                    <div className="mb-4 md:mr-4 border-2 border-gray-500 rounded-full overflow-hidden order-1 md:order-2">
+                        <img src={clearPic} alt="Profile" className="transform scale-110 md:scale-100 h-32 w-32 md:h-32 md:w-32" />
                     </div>
-                    <div className="flex items-center min-w-max md:order-1 text-center md:text-left">
+                    <div className="flex items-center min-w-max md:order-1 order-2 text-center md:text-left">
                         <h1 className="font-pokemon text-xs md:text-xl">
                             <TypeAnimation
                                 style={{ whiteSpace: 'pre-line', display: 'block' }}
@@ -45,7 +46,6 @@ export const HomePage = () => {
                     </div>
                 </div>
 
-                {/* Footer */}
                 <div className="bg-white p-4 font-pokemon text-xs mt-auto">
                     <TypeAnimation className='cursor-pointer'
                         style={{ whiteSpace: 'pre-line', display: 'block' }}
@@ -59,7 +59,8 @@ export const HomePage = () => {
                     />
                 </div>
             </div>
-            <Tooltip id="my-tooltip" className="font-pokemon text-xs"
+            <Tooltip id="my-tooltip"
+                className="font-pokemon text-xs"
                 style={{ backgroundColor: "rgb(255, 255, 255)", color: "#222" }} />
         </>
     )
