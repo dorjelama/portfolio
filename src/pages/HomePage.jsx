@@ -24,12 +24,13 @@ export const HomePage = () => {
                     </div>
                 </div>
 
-                <div className="flex-1 flex items-center justify-center">
-                    <div className="inline-block mr-4 border-2 border-gray-500 rounded-full overflow-hidden">
-                        <img src={clearPic} alt="Profile" className="h-32 w-32 transform scale-110" />
+                <div className="flex flex-col items-center justify-center md:flex-row-reverse md:items-center flex-grow">
+                    {/* Image and Text */}
+                    <div className="mb-4 md:mr-4 border-2 border-gray-500 rounded-full overflow-hidden md:order-2">
+                        <img src={clearPic} alt="Profile" className="h-32 w-32 transform scale-110 md:scale-100 md:h-32 md:w-32" />
                     </div>
-                    <div className="flex items-center min-w-max">
-                        <h1 className="font-pokemon text-xl">
+                    <div className="flex items-center min-w-max md:order-1 text-center md:text-left">
+                        <h1 className="font-pokemon text-xs md:text-xl">
                             <TypeAnimation
                                 style={{ whiteSpace: 'pre-line', display: 'block' }}
                                 sequence={[
@@ -44,7 +45,8 @@ export const HomePage = () => {
                     </div>
                 </div>
 
-                <div className="bg-white p-4 font-pokemon text-xs">
+                {/* Footer */}
+                <div className="bg-white p-4 font-pokemon text-xs mt-auto">
                     <TypeAnimation className='cursor-pointer'
                         style={{ whiteSpace: 'pre-line', display: 'block' }}
                         sequence={[
