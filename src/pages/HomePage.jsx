@@ -5,6 +5,13 @@ import backgroundImg from "../assets/background.webp"
 import { SocialIcon } from "react-social-icons";
 import { Tooltip } from 'react-tooltip'
 import { MdCloudDownload } from "react-icons/md";
+import DotNetImage from "../assets/dotnet.png"
+import CV from "../assets/Dorje Lama CV.pdf"
+import CSharp from "../assets/CSharp.png"
+import ReactImg from "../assets/react.png"
+import TailwindcssImg from "../assets/tailwindcss.png"
+import MsSQLImg from "../assets/mssql.png"
+import Hexagongroup from '../component/hexagongroup';
 
 export const HomePage = () => {
     return (
@@ -47,21 +54,31 @@ export const HomePage = () => {
                 </div>
 
                 <div className="flex items-center p-4 font-pokemon text-xs mt-auto">
-
-                    <MdCloudDownload size={20} className='mr-2 cursor-pointer' style={{ color: 'white' }} />
-                    <TypeAnimation className='cursor-pointer'
-                        style={{ whiteSpace: 'pre-line', display: 'block' }}
-                        sequence={[
-                            '',
-                            7000,
-                            `Download My Resume`,
-                            1000
-                        ]}
-                        speed={1}
-                        repeat={Infinity}
-                    />
+                    <a href={CV} download>
+                        <div className="flex items-center">
+                            <MdCloudDownload size={20} className='mr-2 cursor-pointer' style={{ color: 'white' }} />
+                            <TypeAnimation className='cursor-pointer'
+                                style={{ whiteSpace: 'pre-line', display: 'block' }}
+                                sequence={[
+                                    '',
+                                    7000,
+                                    `Download My Résumé`,
+                                    1000
+                                ]}
+                                speed={1}
+                                repeat={Infinity}
+                            />
+                        </div>
+                    </a>
                 </div>
             </div>
+            {/* <div className='absolute flex flex-col top-20 left-10'>
+                <Hexagongroup img1={DotNetImage} img2={CSharp} img3={ReactImg} />
+                <Hexagongroup img1={TailwindcssImg} img2={MsSQLImg} img3={clearPic} />
+                <Hexagongroup img1={DotNetImage} img2={CSharp} img3={clearPic} />
+                <Hexagongroup img1={DotNetImage} img2={CSharp} img3={clearPic} />
+                <Hexagongroup img1={DotNetImage} img2={CSharp} img3={clearPic} />
+            </div> */}
             <Tooltip id="my-tooltip"
                 className="font-pokemon text-xs"
                 style={{ backgroundColor: "rgb(255, 255, 255)", color: "#222" }} />
