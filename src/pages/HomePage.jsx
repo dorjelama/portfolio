@@ -44,7 +44,7 @@ export const HomePage = () => {
                                 sequence={[
                                     "",
                                     2000,
-                                    `Hi, I am Dorje Lama\n Senior Software Engineer (.Net)\n at AMNIL Technologies`,
+                                    `Hi, I am Dorje Lama\n Senior Software Engineer (.Net)\n at Cloud Pro Ai`,
                                     1000
                                 ]}
                                 speed={1}
