@@ -46,30 +46,26 @@ export const HomePage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center md:flex-row-reverse md:items-center flex-grow">
-          {/* Image and Text (Reversed order for smaller screens) */}
-          <div className="mb-4 md:mr-4 border-2 border-black rounded-full overflow-hidden order-1 md:order-2">
-            <img
-              src={clearPic}
-              alt="Profile"
-              className="transform scale-110 md:scale-100 h-32 w-32 md:h-32 md:w-32"
-            />
-          </div>
-          <div className="flex p-2 bg-white border-black items-center md:order-1 order-2 text-center md:text-left">
-            <h1 className="font-pokemon text-xs md:text-xl">
-              <TypeAnimation
-                style={{ whiteSpace: "pre-line", display: "block" }}
-                sequence={[
-                  "",
-                  2000,
-                  `Hi, I am Dorje Lama\n .Net Developer at Silicon Soft`,
-                  1000,
-                ]}
-                speed={1}
-              />
-            </h1>
-          </div>
-        </div>
+                <div className="flex flex-col items-center justify-center md:flex-row-reverse md:items-center flex-grow">
+                    {/* Image and Text (Reversed order for smaller screens) */}
+                    <div className="mb-4 md:mr-4 border-2 border-black rounded-full overflow-hidden order-1 md:order-2">
+                        <img src={clearPic} alt="Profile" className="transform scale-110 md:scale-100 h-32 w-32 md:h-32 md:w-32" />
+                    </div>
+                    <div className="flex p-2 bg-white border-black items-center md:order-1 order-2 text-center md:text-left">
+                        <h1 className="font-pokemon text-xs md:text-xl">
+                            <TypeAnimation
+                                style={{ whiteSpace: 'pre-line', display: 'block' }}
+                                sequence={[
+                                    "",
+                                    2000,
+                                    `Hi, I am Dorje Lama\n Senior Software Engineer (.Net)\n at Cloud Pro Ai`,
+                                    1000
+                                ]}
+                                speed={1}
+                            />
+                        </h1>
+                    </div>
+                </div>
 
         <div className="flex items-center p-4 font-pokemon text-xs mt-auto">
           <a href={CV} download>
