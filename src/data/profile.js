@@ -7,6 +7,33 @@ export function career(now = new Date()) {
   return { lv: Math.max(1, Math.floor(years)), xp: years % 1 };
 }
 
+// Time since the first job as calendar years/months/days + hh:mm:ss, e.g. "9y 2mo 4d 13:22:07".
+export function uptime(now = new Date()) {
+  const s = CAREER_START;
+  let months = (now.getFullYear() - s.getFullYear()) * 12 + now.getMonth() - s.getMonth();
+  const anchor = (m) => new Date(s.getFullYear(), s.getMonth() + m, s.getDate());
+  if (anchor(months) > now) months--;
+  const rest = Math.floor((now - anchor(months)) / 1000);
+  const pad = (n) => String(n).padStart(2, "0");
+  const clock = [Math.floor((rest % 86400) / 3600), Math.floor((rest % 3600) / 60), rest % 60].map(pad).join(":");
+  return `${Math.floor(months / 12)}y ${months % 12}mo ${Math.floor(rest / 86400)}d ${clock}`;
+}
+
+export const MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" ");
+
+// Plain-English length of a job: tenure("Mar 2024", "Present") -> "2 yrs 8 mos".
+export function tenure(from, to, now = new Date()) {
+  const ym = (s) => {
+    if (s === "Present") return now.getFullYear() * 12 + now.getMonth();
+    const [m, y] = s.split(" ");
+    return Number(y) * 12 + MONTHS.indexOf(m);
+  };
+  const total = ym(to) - ym(from);
+  const y = Math.floor(total / 12), m = total % 12;
+  const part = (n, unit) => n && `${n} ${unit}${n > 1 ? "s" : ""}`;
+  return [part(y, "yr"), part(m, "mo")].filter(Boolean).join(" ") || "under a month";
+}
+
 export const profile = {
   name: "Dorje Lama",
   title: "Senior Software Engineer",

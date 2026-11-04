@@ -9,16 +9,41 @@
 }
 
 @layer base {
+  html {
+    color-scheme: dark;
+    /* Theme accents as "r g b"; the Pokémon theme picker overwrites these at runtime. */
+    --accent: 52 211 153;
+    --accent-2: 34 211 238;
+  }
   body {
-    background: theme("colors.ink");
+    background: #05080d;
   }
   :focus-visible {
-    outline: 3px solid theme("colors.gold.DEFAULT");
+    outline: 2px solid rgb(var(--accent-2));
     outline-offset: 2px;
   }
 }
 
 @layer components {
+  /* Diagnostics dashboard: faint terminal grid, glass panels, neon text. */
+  .terminal-grid {
+    background-color: #05080d;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgb(var(--accent) / 0.08), transparent),
+      linear-gradient(rgb(148 163 184 / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(148 163 184 / 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+  }
+  .pulse-glow {
+    animation: pulse-glow 1.6s ease-in-out infinite;
+  }
+  .panel {
+    @apply overflow-hidden rounded-lg border border-slate-800 bg-slate-950/80 backdrop-blur;
+  }
+  .glow {
+    text-shadow: 0 0 12px currentColor;
+  }
+
   /* The white, double-bordered handheld-RPG text box. */
   .pixel-box {
     background: theme("colors.paper");
@@ -171,5 +196,11 @@
   }
   .cloud {
     display: none;
+  }
+}
+
+@keyframes pulse-glow {
+  50% {
+    box-shadow: 0 0 22px rgb(var(--accent) / 0.75);
   }
 }
