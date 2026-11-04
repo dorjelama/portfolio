@@ -8,20 +8,14 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "build": "vite build",
+    "test": "node --test src/game",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hexagon": "^1.1.3",
-    "react-icons": "^5.0.1",
-    "react-pdf": "^9.1.1",
-    "react-router-dom": "^7.18.5",
-    "react-social-icons": "^6.14.0",
-    "react-tooltip": "^5.26.3",
-    "react-type-animation": "^3.2.0",
-    "typed.js": "^2.1.0"
+    "react-icons": "^5.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

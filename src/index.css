@@ -4,6 +4,172 @@
 
 @font-face {
   font-family: "Pokemon";
-  src: url("../src/assets/pokemonfont.ttf") format('truetype');
+  src: url("./assets/pokemonfont.ttf") format("truetype");
+  font-display: swap;
 }
 
+@layer base {
+  body {
+    background: theme("colors.ink");
+  }
+  :focus-visible {
+    outline: 3px solid theme("colors.gold.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* The white, double-bordered handheld-RPG text box. */
+  .pixel-box {
+    background: theme("colors.paper");
+    color: theme("colors.ink");
+    border: 3px solid theme("colors.ink");
+    border-radius: 8px;
+    box-shadow:
+      inset 0 0 0 2px #fff,
+      inset 0 0 0 4px theme("colors.sea.light"),
+      0 4px 0 rgb(0 0 0 / 0.35);
+  }
+  .pixel-btn {
+    @apply pixel-box inline-flex items-center gap-2 px-3 py-2 text-[10px] md:text-xs;
+  }
+  .pixel-btn:hover {
+    transform: translateY(-1px);
+  }
+  .pixel-btn:active {
+    transform: translateY(2px);
+    box-shadow:
+      inset 0 0 0 2px #fff,
+      inset 0 0 0 4px theme("colors.sea.light");
+  }
+
+  .menu-item {
+    @apply flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-xs md:text-sm;
+  }
+  .menu-item::before {
+    content: "▶";
+    @apply text-[10px] text-sea;
+    visibility: hidden;
+  }
+  .menu-item:hover::before,
+  .menu-item:focus::before {
+    visibility: visible;
+  }
+  .menu-item:focus {
+    outline: none;
+  }
+
+  .item-slot {
+    @apply grid aspect-square w-full place-items-center rounded border-[3px] border-ink bg-white text-ink;
+  }
+  .item-slot[aria-pressed="true"] {
+    @apply bg-gold;
+  }
+
+  .badge {
+    @apply inline-block rounded border-2 border-ink px-1.5 py-0.5 text-[9px] uppercase;
+  }
+
+  .bar {
+    @apply h-3 overflow-hidden rounded-sm border-2 border-ink bg-white;
+  }
+  .bar-fill {
+    @apply h-full;
+  }
+
+  .roof-label {
+    @apply absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap px-1 text-white;
+    text-shadow: 1px 1px 0 theme("colors.ink"), -1px -1px 0 theme("colors.ink"), 1px -1px 0 theme("colors.ink"), -1px 1px 0 theme("colors.ink");
+  }
+
+  .touch-btn {
+    @apply grid h-14 w-14 touch-none place-items-center rounded-lg border-[3px] border-ink bg-paper text-lg text-ink active:bg-gold;
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 0 theme("colors.ink");
+  }
+  .title-logo {
+    color: #fff;
+    text-shadow:
+      3px 0 0 theme("colors.ink"),
+      -3px 0 0 theme("colors.ink"),
+      0 3px 0 theme("colors.ink"),
+      0 -3px 0 theme("colors.ink"),
+      6px 6px 0 theme("colors.roof");
+  }
+  .title-start {
+    color: #fff;
+    text-shadow: 3px 3px 0 theme("colors.ink");
+  }
+
+  /* Inside a building: wooden floorboards. */
+  .room {
+    background-color: #a8723f;
+    background-image:
+      repeating-linear-gradient(0deg, rgb(0 0 0 / 0.18) 0 2px, transparent 2px 32px),
+      repeating-linear-gradient(90deg, rgb(255 255 255 / 0.06) 0 96px, transparent 96px 192px);
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+  }
+  .blink {
+    animation: blink 1s steps(1) infinite;
+  }
+  .cloud {
+    position: absolute;
+    left: 0;
+    image-rendering: pixelated;
+    animation: drift 80s linear infinite;
+  }
+  .level-up {
+    animation: pop 2.4s ease-out forwards;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes drift {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}
+@keyframes pop {
+  0% {
+    transform: translateX(-50%) scale(0.4);
+    opacity: 0;
+  }
+  15% {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 1;
+  }
+  25%,
+  85% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .cloud {
+    display: none;
+  }
+}
