@@ -11,10 +11,15 @@ export default {
         grass: { DEFAULT: "#6ccf4a", dark: "#2f7a2a" },
         gold: { DEFAULT: "#ffd84a", dark: "#b88a00" },
         roof: "#d94a3a",
+        // Theme accents, set at runtime by the Pokémon theme picker (see src/index.css :root).
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        accent2: "rgb(var(--accent-2) / <alpha-value>)",
       },
     },
     fontFamily: {
       pokemon: ["Pokemon", "sans-serif"],
+      mono: ["JetBrains Mono", "Fira Code", "ui-monospace", "monospace"],
+      sans: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
     },
   },
   plugins: [],
