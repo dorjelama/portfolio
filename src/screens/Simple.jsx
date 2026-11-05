@@ -189,6 +189,11 @@ export default function Simple({ onSwitch }) {
                   <p className="font-semibold text-slate-100">{p.name}</p>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">{p.text}</p>
                   <p className="mt-3 text-[11px] text-slate-500">Built with: {p.stack.join(", ")}</p>
+                  {p.url && (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="mt-3 text-sm font-semibold text-sky-400 underline">
+                      Play it<span className="sr-only"> {p.name} (opens in a new tab)</span>
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

@@ -83,8 +83,15 @@ export const sideQuests = [
   { role: "+2 Science", org: "Himalaya Int'l Model Secondary School", from: "2011", to: "2013" },
 ];
 
-// icon: a react-icons/md name, resolved in Projects.jsx
+// icon: a react-icons/md name, resolved in Projects.jsx. url: optional, adds a "Play" link.
 export const projects = [
+  {
+    name: "Critter Catch",
+    icon: "MdCatchingPokemon",
+    stack: ["Node.js", "WebSocket", "Canvas"],
+    text: "A 2-player monster-catching race built to show real-time netcode: an authoritative server, client-side prediction with reconciliation, entity interpolation and lag-compensated catches. It has a built-in lag simulator so you can switch each technique off and see why it exists. The free server may take a minute to wake up.",
+    url: "https://critter-catch.onrender.com",
+  },
   {
     name: "Collateral Specialists",
     icon: "MdFactCheck",
