@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { MdAccountBalance, MdFactCheck, MdHomeWork, MdLocalFlorist } from "react-icons/md";
+import { MdAccountBalance, MdCatchingPokemon, MdFactCheck, MdHomeWork, MdLocalFlorist } from "react-icons/md";
 import PixelFrame from "../components/PixelFrame";
 import { projects } from "../data/profile";
 import { arrowNav } from "../game/input";
 import { sfx } from "../game/sound";
 
-const ICONS = { MdAccountBalance, MdFactCheck, MdHomeWork, MdLocalFlorist };
+const ICONS = { MdAccountBalance, MdCatchingPokemon, MdFactCheck, MdHomeWork, MdLocalFlorist };
 
 export default function Projects() {
   const [selected, setSelected] = useState(0);
@@ -55,6 +55,11 @@ export default function Projects() {
             </li>
           ))}
         </ul>
+        {item.url && (
+          <a href={item.url} target="_blank" rel="noopener noreferrer" className="badge mt-4 inline-block bg-sea text-white">
+            Play ▶<span className="sr-only"> {item.name} (opens in a new tab)</span>
+          </a>
+        )}
       </PixelFrame>
     </div>
   );
