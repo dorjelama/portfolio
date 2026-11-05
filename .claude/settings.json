@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(npm test *)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "Bash(gh run *)",
+      "Bash(curl -s \"https://api.github.com/repos/dorjelama/portfolio/actions/runs/42046793766/jobs\")",
+      "Bash(git fetch *)",
+      "Bash(npx -y -p node@22 node --test src)",
+      "Bash(npx -y -p node@22 node --test)"
     ]
   }
 }
