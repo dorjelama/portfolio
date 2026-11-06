@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { MdAccountBalance, MdCatchingPokemon, MdFactCheck, MdHomeWork, MdLocalFlorist } from "react-icons/md";
+import { MdAccountBalance, MdCatchingPokemon, MdFactCheck, MdHomeWork, MdLocalFlorist, MdSportsEsports } from "react-icons/md";
 import PixelFrame from "../components/PixelFrame";
 import { projects } from "../data/profile";
 import { arrowNav } from "../game/input";
 import { sfx } from "../game/sound";
 
-const ICONS = { MdAccountBalance, MdCatchingPokemon, MdFactCheck, MdHomeWork, MdLocalFlorist };
+const ICONS = { MdAccountBalance, MdCatchingPokemon, MdFactCheck, MdHomeWork, MdLocalFlorist, MdSportsEsports };
 
 export default function Projects() {
   const [selected, setSelected] = useState(0);

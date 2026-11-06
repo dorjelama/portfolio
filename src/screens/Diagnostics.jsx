@@ -526,6 +526,44 @@ function Workspace() {
   );
 }
 
+// --- my vibe: side-project games (any project with a url is playable) -------
+
+function Vibe() {
+  return (
+    <section aria-labelledby="vibe" className="panel p-3">
+      <h2 id="vibe" className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-slate-500">
+        <Dot color="accent2" /> My Vibe
+      </h2>
+      <p className="mt-1 text-[11px] text-slate-400">Multiplayer games I build for fun, to dig into real-time netcode.</p>
+      <ul className="mt-3 grid gap-3 md:grid-cols-2">
+        {projects
+          .filter((p) => p.url)
+          .map((p) => (
+            <li key={p.name} className="flex flex-col rounded border border-slate-800 bg-slate-900/40 p-3">
+              <p className="font-semibold text-accent">{p.name}</p>
+              <p className="mt-1 flex-1 text-[12px] leading-relaxed text-slate-400">{p.text}</p>
+              <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                {p.stack.map((s) => (
+                  <span key={s} className="rounded border border-slate-800 bg-slate-900/60 px-1.5 py-0.5 text-[10px] text-slate-300">
+                    {s}
+                  </span>
+                ))}
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-auto flex items-center gap-1 rounded border border-accent bg-accent/10 px-3 py-1.5 text-[11px] font-semibold tracking-widest text-accent hover:bg-accent/20"
+                >
+                  <MdPlayArrow aria-hidden /> PLAY<span className="sr-only"> {p.name} (opens in a new tab)</span>
+                </a>
+              </div>
+            </li>
+          ))}
+      </ul>
+    </section>
+  );
+}
+
 // --- page ----------------------------------------------------------------
 
 const LINKS = [
@@ -582,6 +620,7 @@ export default function Diagnostics({ onSwitch }) {
 
           <VitalsBar />
           <Workspace />
+          <Vibe />
 
           <footer className="flex flex-col gap-1 border-t border-slate-800 pt-3 text-[10px] text-slate-600 sm:flex-row sm:justify-between">
             <span className="uppercase tracking-widest">MS SQL Server · .NET · ASP.NET Core · React</span>
