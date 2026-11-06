@@ -93,6 +93,13 @@ export const projects = [
     url: "https://critter-catch.onrender.com",
   },
   {
+    name: "Boom Orbs",
+    icon: "MdSportsEsports",
+    stack: ["TypeScript", "Node.js", "WebSocket", "Canvas"],
+    text: "A 4-player online bomb-maze brawl set in the Critter Catch world, built to show rollback netcode: clients send only inputs, the server runs the same deterministic rules at 60 Hz, and each client predicts ahead, then rolls back and replays when the confirmed inputs differ. Share the invite link with friends; bots fill empty seats. The free server may take a minute to wake up.",
+    url: "https://boom-orbs.onrender.com",
+  },
+  {
     name: "Collateral Specialists",
     icon: "MdFactCheck",
     stack: ["ASP.NET MVC", "Web API"], // not on the CV, inferred from the repo name: check
